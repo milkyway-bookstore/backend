@@ -1,7 +1,8 @@
 package com.project.milkyway.api.book.entity;
 
-import com.project.milkyway.api.member.entity.Member;
-import com.project.milkyway.api.member.entity.Status;
+import com.project.milkyway.api.cart.entity.Cart;
+import com.project.milkyway.api.order.entity.OrderDetail;
+import com.project.milkyway.api.pick.entity.Pick;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,8 +34,17 @@ public class Book {
     @Column(columnDefinition = "tinyint")
     private Integer status;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createdDt;
+    private LocalDateTime updatedDt;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Cart> cart;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Pick> pick;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<OrderDetail> orderDetails;
 
     public Book changeStatus(BookStatus status) {
         return this.toBuilder()
