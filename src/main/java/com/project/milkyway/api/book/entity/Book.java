@@ -25,13 +25,11 @@ public class Book {
     private Long pubId;
 
     private String title;
-
     private String desc;
     private String author;
-
     private Integer price;
-
     private UUID coverImg;
+    @Column(columnDefinition = "tinyint")
     private Integer status;
 
     private LocalDateTime createdAt;
