@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="member")
 @Builder(toBuilder=true)
@@ -27,6 +29,9 @@ public class Member {
     private Integer role;
     @Column(columnDefinition = "tinyint")
     private Integer status;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public Member changeStatus(Status status) {
         return this.toBuilder()
