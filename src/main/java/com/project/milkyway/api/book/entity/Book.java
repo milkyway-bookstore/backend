@@ -30,7 +30,7 @@ public class Book {
     private String desc;
     private String author;
     private Integer price;
-    private UUID coverImg;
+    private String coverImg;
     @Column(columnDefinition = "tinyint")
     private Integer status;
 

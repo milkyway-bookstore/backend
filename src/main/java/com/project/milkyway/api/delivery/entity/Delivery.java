@@ -28,8 +28,7 @@ public class Delivery {
 
     private String deliveryName;
 
-    @Column(columnDefinition = "tinyint")
-    private Integer defaultStatus;
+    private Boolean defaultStatus;
 
     private String name;
     private String phone;
