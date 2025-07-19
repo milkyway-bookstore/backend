@@ -30,10 +30,12 @@ public class Order {
     private Delivery delivery;
 
     private Integer purchasePrice;
+    private String paymentKey;
 
     private LocalDateTime createdDt;
     private LocalDateTime updatedDt;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.DETACH, orphanRemoval = true)
     private List<OrderDetail> orderDetails;
+
 }

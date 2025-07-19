@@ -17,3 +17,9 @@ springdoc:
   swagger-ui:
     path: /api-docs/
     disable-swagger-default-url: true
+
+
+payment:
+  secret-key: {toss secret-key}
+  base-url: https://api.tosspayments.com/v1/payments
+  auth-header-prefix: Basic
